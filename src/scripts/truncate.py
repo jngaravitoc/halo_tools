@@ -17,7 +17,7 @@ import numpy as np
 from pygadgetreader import readsnap
 import sys
 
-if (len(sys.argv)!=3):
+if (len(sys.argv)!=4):
     print('Error --> Usage: python truncate.py snap_name r_cut output')
     sys.exit()
 
