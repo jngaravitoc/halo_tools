@@ -13,7 +13,6 @@ University of Arizona.
 To-Do:
 ------
 1. Implement the main function.
-2. Speed up the shrinking sphere method.
 
 """
 
