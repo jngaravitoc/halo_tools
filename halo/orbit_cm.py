@@ -219,19 +219,30 @@ def orbit_CM(path, snap_name, initial_snap, final_snap, NMW_particles,\
     return MW_rcm, MW_vcm, LMC_rcm, LMC_vcm
 
 
-def writing_file(out_name, Host_rcm, Host_vcm, Sat_rcm ,Sat_vcm):
+def writing_file(out_name, time, Host_rcm, Host_vcm, Sat_rcm ,Sat_vcm):
     """
 
     Function that writes the output.
 
     """
+
+    MW_r = np.sqrt(Host_rcm[0]**2.0 + Host_rcm[1]**2.0 + Host_rcm[2]**2.0)
+    Rgal = np.sqrt((Host_rcm[0]-Sat_rcm[0])**2.0 + (Host_rcm[1]-\
+                    Sat_rcm[1])**2.0 +(Host_rcm[2]-Sat_rcm[2])**2.0)
+
+
     f = open(out_name, 'w')
-    f.write("#Time(Gyrs) | Rgal(kpc) | Xsat[kpc] | Ysat[kpc] | Zsat[kpc] |Xhost[kpc] | Yhost[kpc] Zhost[kpc] |"\
-            "Vgal | Vxsat | Vysat | Vzsat | Vxhost | Vyhost | Vzhost |\n")
+    f.write("#Time (Gyrs) | R_mw(kpc) | Rgal_sat(kpc) |  V_mw(km/s) "\
+            "| V_sat(km/s) |  Xhost[kpc] | Yhost[kpc] | Zhost[kpc] |"\
+            " Xsat[kpc] | Ysat[kpc] | Zsat[kpc] | Vxhost | Vyhost |"\
+            "Vzhost | Vxsat | Vysat | Vzsat |\n")
 
     for i in range(0, len(Rgal)):
-        f.write("%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\n"%(Rgal[i], Xsat[i], Ysat[i],\
-        Zsat[i], X[i], Y[i], Z[i], Vgal[i], VXsat[i], VYsat[i], VZsat[i], VX[i], VY[i], VZ[i]))
+        f.write("%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\n"\
+                %(time[i], MW_r[i], R_gal[i], MW_v[i], V_gal[i],\
+                Host_rcm[i,0], Host_rcm[i,1], Host_rcm[i,2], Sat_rcm[i,0], Sat_rcm[i,1],\
+                Sat_rcm[i,2], Host_vcml[i,0], Host_vcm[i,1],Host_vcm[i,2], Sat_vcm[i,0],\
+                Sat_vcm[i,1], Sat_vcm[i,2]))
     f.close()
 
 if __name__ == '__main__':

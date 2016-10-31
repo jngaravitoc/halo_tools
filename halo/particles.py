@@ -12,8 +12,6 @@ Return mass and potential!
 
 import numpy as np
 
-
-
 def host_sat_particles(xyz, vxyz, ids, N_halo, pot=False, mass=False):
     """
     Returns the host and the satellite DM particles.
