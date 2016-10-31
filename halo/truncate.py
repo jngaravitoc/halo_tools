@@ -35,8 +35,12 @@ def truncate(pos, vel, rcut, M=False, pot=False):
 
     pos_t = pos[truncate]
     vel_t = vel[truncate]
-
-    return pos_t, vel_t
+    if  M[0]:
+        M_t = M[truncate]
+        pot_t = pot[truncate]
+        return pos_t, vel_t, M_t, pot_t
+    else:
+        return pos_t, vel_t
 
 
 """
