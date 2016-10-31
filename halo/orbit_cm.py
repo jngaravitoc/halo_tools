@@ -19,8 +19,8 @@ To-Do:
 
 import numpy as np
 from pygadgetreader import *
-#rom particles import host_sat_particles
-#rom truncate import truncate
+from .particles import host_sat_particles
+from .truncate import truncate
 
 def CM_basic(xyz, vxyz):
 

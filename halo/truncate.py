@@ -15,7 +15,6 @@ python truncate.py snap_name r_cut output
 
 import numpy as np
 #from pygadgetreader import readsnap
-#import sys
 
 """
 if (len(sys.argv)!=4):
