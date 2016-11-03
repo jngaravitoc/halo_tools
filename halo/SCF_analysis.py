@@ -380,3 +380,7 @@ def plot_potential_contours(idx, S, T, grid_max=250., n_grid=300):
     return fig,ax
 
 # function to plot multipole moments pontential
+
+
+
+

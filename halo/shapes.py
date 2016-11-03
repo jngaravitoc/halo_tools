@@ -109,7 +109,7 @@ def iterate_volume(x, y, z, r, tol):
         rot, s, q = axis_ratios(s_tensor)
         counter +=1
         if counter >=2000:
-           s, q = [0.0, 0.0]
+           print('Warning: Convergence in the shape was not found!')
            break
     return s.real, q.real
 
