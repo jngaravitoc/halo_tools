@@ -28,7 +28,7 @@ def reading_snaps(snap_path, snap_name, N_snap, N_part_host):
     """
     function that read a snapshot using pygadget reader
     """
-    pos = readsnap(lmc_path + lmc_snap + '_{:03d}'.format(N_sanp), 'pos', 'dm')
+    pos = readsnap(lmc_path + lmc_snap + '_{:03d}'.format(N_snap), 'pos', 'dm')
     M = readsnap(lmc_path + lmc_snap + '_{:03d}'.format(N_snap),'mass', 'dm')
     vel = readsnap(lmc_path + lmc_snap + '_{:03d}'.format(N_snap),'vel', 'dm')
     pot = readsnap(lmc_path + lmc_snap + '_{:03d}'.format(N_snap),'pot', 'dm')
