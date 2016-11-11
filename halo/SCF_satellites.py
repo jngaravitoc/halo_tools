@@ -106,3 +106,8 @@ def mask_satellite(snap_path, snap_name, orbits, Ni, Nf, rcut, N_part_host):
         return out_pos, out_M, out_pot, sat_pos_inn, sat_M_inn\
                ,sat_pot_inn
 
+#def comp_coeff(pos, M, nmax, lmax, rs):
+#     S, T = biff.compute_coeffs_discrete(np.ascontiguousarray(pos).astype(np.float64),\
+#                                         M., nmax, lmax, rs)
+     
+

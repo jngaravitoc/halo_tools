@@ -226,14 +226,14 @@ def writing_file(out_name, time, Host_rcm, Host_vcm, Sat_rcm ,Sat_vcm):
 
     """
 
-    MW_r = np.sqrt(Host_rcm[0]**2.0 + Host_rcm[1]**2.0 + Host_rcm[2]**2.0)
-    MW_v = np.sqrt(Host_vcm[0]**2.0 + Host_vcm[1]**2.0 + Host_vcm[2]**2.0)
-    R_gal = np.sqrt((Host_rcm[0]-Sat_rcm[0])**2.0 + (Host_rcm[1]-\
-                    Sat_rcm[1])**2.0 +(Host_rcm[2]-Sat_rcm[2])**2.0)
+    MW_r = np.sqrt(Host_rcm[:,0]**2.0 + Host_rcm[:,1]**2.0 + Host_rcm[:,2]**2.0)
+    MW_v = np.sqrt(Host_vcm[:,0]**2.0 + Host_vcm[:,1]**2.0 + Host_vcm[:,2]**2.0)
+    R_gal = np.sqrt((Host_rcm[:,0]-Sat_rcm[:,0])**2.0 + (Host_rcm[:,1]-\
+                    Sat_rcm[:,1])**2.0 +(Host_rcm[:,2]-Sat_rcm[:,2])**2.0)
 
 
-    V_gal = np.sqrt((Host_vcm[0]-Sat_vcm[0])**2.0 + (Host_vcm[1]-\
-                    Sat_vcm[1])**2.0 +(Host_vcm[2]-Sat_vcm[2])**2.0)
+    V_gal = np.sqrt((Host_vcm[:,0]-Sat_vcm[:,0])**2.0 + (Host_vcm[:,1]-\
+                    Sat_vcm[:,1])**2.0 +(Host_vcm[:,2]-Sat_vcm[:,2])**2.0)
     f = open(out_name, 'w')
     f.write("#Time (Gyrs) | R_mw(kpc) | Rgal_sat(kpc) |  V_mw(km/s) "\
             "| V_sat(km/s) |  Xhost[kpc] | Yhost[kpc] | Zhost[kpc] |"\
@@ -241,10 +241,10 @@ def writing_file(out_name, time, Host_rcm, Host_vcm, Sat_rcm ,Sat_vcm):
             "Vzhost | Vxsat | Vysat | Vzsat |\n")
 
     for i in range(0, len(R_gal)):
-        f.write("%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\n"\
+        f.write("%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f\n"\
                 %(time[i], MW_r[i], R_gal[i], MW_v[i], V_gal[i],\
                 Host_rcm[i,0], Host_rcm[i,1], Host_rcm[i,2], Sat_rcm[i,0], Sat_rcm[i,1],\
-                Sat_rcm[i,2], Host_vcml[i,0], Host_vcm[i,1],Host_vcm[i,2], Sat_vcm[i,0],\
+                Sat_rcm[i,2], Host_vcm[i,0], Host_vcm[i,1],Host_vcm[i,2], Sat_vcm[i,0],\
                 Sat_vcm[i,1], Sat_vcm[i,2]))
     f.close()
 

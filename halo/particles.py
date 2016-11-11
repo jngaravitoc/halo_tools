@@ -21,4 +21,10 @@ def host_sat_particles(xyz, vxyz, ids, N_halo, pot=False, mass=False):
     index_mw = np.where(ids<id_cut)[0]
     index_lmc = np.where(ids>=id_cut)[0]
 
-    return xyz[index_mw], vxyz[index_mw], xyz[index_lmc], vxyz[index_lmc]
+    # Look for the proper way to do this!
+    if type(pot)==type(xyz):
+        return xyz[index_mw], vxyz[index_mw], mass[index_mw],\
+               pot[index_mw], xyz[index_lmc], vxyz[index_lmc],\
+               mass[index_lmc], pot[index_lmc]
+    else:
+        return xyz[index_mw], vxyz[index_mw], xyz[index_lmc], vxyz[index_lmc]

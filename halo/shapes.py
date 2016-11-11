@@ -27,6 +27,7 @@ def volumes(x, y, z, r, q, s):
 #Computing the shape tensor
 def shape_tensor(x, y, z):
     N = len(x)
+    assert(N!=0)
     XYZ = np.array([x, y, z])
     shape_T = np.zeros([3, 3])
     for i in range(3):
