@@ -7,6 +7,6 @@ setup(name='Halo tools',
       description='Tools to compute properties of Dark Matter halos',
       author='Nicolas Garavito',
       author_email='jngaravitoc@email.arizona.edu',
-      install_requieres=['numpy', 'scipy', 'astropy', 'pygadgetreade'],
+      install_requieres=['numpy', 'scipy', 'astropy', 'pygadgetreader', 'biff'],
       packages=['halo'],
      )

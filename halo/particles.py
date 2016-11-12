@@ -6,8 +6,6 @@ are first in the ids of the snapshot.
 To-Do:
 ------
 
-Return mass and potential!
-
 """
 
 import numpy as np
